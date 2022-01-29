@@ -1,6 +1,27 @@
 body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color: aquamarine;
+    height: 70vh;
+    width: 100vw;
+    font-family: 'Kalam', cursive;
+    font-size: large;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    margin-top: 30px;
+}
+
+.cell {
+    height: 100px;
+    width: 100px;
+    box-shadow: 0 0 0 1px #333333;
+    border: 1px solid #333333;
+    cursor: pointer;
+    line-height: 60px;
+    font-size: 60px;
 }
