@@ -2,6 +2,27 @@
   board. Game will end with x or o winning or a tie. 
   */
 
+
+/* Declaring var/const for that status of the game, current player, created functions
+to be used later to display messages on screen depending on game outcome
+*/
+let gamePlaying = true;
+let currentPlayer = "O";
+
+const gameWon = function() {
+    `Congratulations, ${currentPlayer} ! You Won!`;
+}    
+const gameDraw = function() {
+     "Cat's Game!";
+}
+
+const currPlayerTurn = function () {
+    `${currentPlayer} Go!`;
+}
+
+const gameStatus = document.querySelector("game-outcome");
+gameStatus.innerHTML = currPlayerTurn();
+
 // gameState is the constant state of the board, a grid set with null variables that will have 
 // Xs or Os to play through the game.  
 const gameState = {

@@ -1,27 +1,48 @@
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: aquamarine;
-    height: 70vh;
-    width: 100vw;
-    font-family: 'Kalam', cursive;
-    font-size: large;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+  height: 70vh;
+  width: 100vw;
+  font-family: "Kalam", cursive;
+  font-size: large;
 }
 
 .game-container {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  margin-top: 30px;
 }
 
 .cell {
-    height: 100px;
-    width: 100px;
-    box-shadow: 0 0 0 1px #333333;
-    border: 1px solid #333333;
-    cursor: pointer;
-    line-height: 60px;
-    font-size: 60px;
+  height: 100px;
+  width: 100px;
+  box-shadow: 0 0 0 1px #333333;
+  border: 1px solid #333333;
+  cursor: pointer;
+  line-height: 60px;
+  font-size: 60px;
+  font-family: "Kalam", cursive;
+}
+
+button {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #0f0101;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Kalam", cursive;
+  font-weight: 300;
+  color: #160202;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+button:hover {
+    color:#000000;
+    background-color: #df1414;
 }
