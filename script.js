@@ -7,22 +7,23 @@
 to be used later to display messages on screen depending on game outcome
 */
 let gameActive = true;
-let currentPlayer = "O";
+let currentPlayer = "X";
 
-const playerTurnDisplay = document.getElementById("playerTurn-display");
+const playerTurnDisplay = document.querySelector(".playerTurn-display");
 const cells = Array.from(document.querySelectorAll(".cell"));
 
 // Write a function that will store user input and display it to the screen
 const player1Submit = document.getElementById("playerBtn1");
+
 player1Submit.addEventListener("click", function() {
     let player1Input = document.getElementById("player1").value;
-    document.getElementById("player1-display").innerHTML = player1Input;
+    document.getElementById("player1-display").innerHTML = player1Input + " is Xs!";
 });
 
 const player2Submit = document.getElementById("playerBtn2");
 player2Submit.addEventListener("click", function() {
     let player2Input = document.getElementById("player2").value;
-    document.getElementById("player2-display").innerHTML = player2Input;
+    document.getElementById("player2-display").innerHTML = player2Input + " is Os!";
 });
 
 
@@ -68,10 +69,11 @@ const winningGame = [
 
 
 const changePlayer = function() {
-    playerTurnDisplay.classList.remove(`Player ${currentPlayer}`);
-    currentPlayer = currentPlayer === "O" ? "X" : "O";
+    playerTurnDisplay.innerHTML = `It's ${currentPlayer}'s turn`;
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
     playerTurnDisplay.innerHTML = currentPlayer;
-    playerTurnDisplay.classList.add(`Player ${currentPlayer}`);
+    playerTurnDisplay.
+
 }
 
 const userAction = function(tile, index) {
