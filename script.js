@@ -6,8 +6,11 @@
 /* Declaring var/const for that status of the game, current player, created functions
 to be used later to display messages on screen depending on game outcome
 */
-let gamePlaying = true;
+let gameActive = true;
 let currentPlayer = "O";
+
+const playerTurnDisplay = document.getElementById("playerTurn-display");
+const cells = Array.from(document.querySelectorAll(".cell"));
 
 // Write a function that will store user input and display it to the screen
 const player1Submit = document.getElementById("playerBtn1");
@@ -62,3 +65,21 @@ const winningGame = [
     [0, 4, 8],
     [2, 4, 6]
 ];
+
+
+const changePlayer = function() {
+    playerTurnDisplay.classList.remove(`Player ${currentPlayer}`);
+    currentPlayer = currentPlayer === "O" ? "X" : "O";
+    playerTurnDisplay.innerHTML = currentPlayer;
+    playerTurnDisplay.classList.add(`Player ${currentPlayer}`);
+}
+
+const userAction = function(tile, index) {
+    if(validAction(tile) && gameActive) {
+        cell.innerHTML = currentPlayer;
+        cell.classList.add(`Player ${currentPlayer}`);
+        boardUpdate(index);
+        resultValidation();
+        changePlayer();
+    }
+}

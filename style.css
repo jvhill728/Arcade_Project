@@ -47,6 +47,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    font-size: x-large;
 }
 
 #player1-display {
