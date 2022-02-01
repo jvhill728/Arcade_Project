@@ -9,6 +9,21 @@ to be used later to display messages on screen depending on game outcome
 let gamePlaying = true;
 let currentPlayer = "O";
 
+// Write a function that will store user input and display it to the screen
+const player1Submit = document.getElementById("playerBtn1");
+player1Submit.addEventListener("click", function() {
+    let player1Input = document.getElementById("player1").value;
+    document.getElementById("player1-display").innerHTML = player1Input;
+});
+
+const player2Submit = document.getElementById("playerBtn2");
+player2Submit.addEventListener("click", function() {
+    let player2Input = document.getElementById("player2").value;
+    document.getElementById("player2-display").innerHTML = player2Input;
+});
+
+
+
 const gameWon = function() {
     `Congratulations, ${currentPlayer} ! You Won!`;
 }    
