@@ -26,21 +26,11 @@ const gameStatus = document.querySelector(".game-outcome");
         let player2Input = document.getElementById("player2").value;
         document.getElementById("player2-display").innerHTML = player2Input + " is Os!";
         document.getElementById("player2").value = "";
+        document.getElementById("playerTurn").innerHTML = "Xs must start the game!"
     });
+ 
 
 
-
-
-// gameState is the constant state of the board, a grid set with null variables that will have 
-// Xs or Os to play through the game.  
-// const gameState = {
-//     players: ['X', 'O'],
-//     board: [
-//         [null, null, null],
-//         [null, null, null],
-//         [null, null, null]
-//     ]
-// }
 
 // Tic tac toe has 8 winning conditions. 3 vertical, 3 horizontal, 2 diagonal. Winning 
 // conditions will have to be declared using the array index of the grid. 
@@ -57,20 +47,29 @@ const winningGame = [
 ];
 
 
-
 // Adding function to allow cells to be be clicked and display x or o depending on player turn
 function cellPlayed(clickedCell, clickedCellIndex) {
     gameState[clickedCellIndex] = currentPlayer;
     clickedCell.innerHTML = currentPlayer;
+    
+    if(currentPlayer === "X") {
+        clickedCell.style.color = "rgb(255, 0, 0)";
+    } else {
+        clickedCell.style.color = "rgb(163, 69, 252)";
+    }
 }
 
 
 // Function will allow player turn to change by looking at who current player is and flipping it
 function playerChange() {
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
-    playerTurnDisplay.innerHTML = `${currentPlayer} Your Turn!`;
+    if(currentPlayer === "X") {
+        currentPlayer = "O";
+        playerTurnDisplay.innerHTML = `${currentPlayer}, Your Turn!`;
+    } else {
+        currentPlayer = "X";
+        playerTurnDisplay.innerHTML = `${currentPlayer}, Your Turn!`;
+    }
 }
-
 
 // Function to look at cells played and determine winner, draw, if moves are valid
 function resultValidation() {
@@ -80,7 +79,7 @@ function resultValidation() {
         let a = gameState[winCondition[0]];
         let b = gameState[winCondition[1]];
         let c = gameState[winCondition[2]];
-        if (a === '' || b === '' || c === '') {
+        if (a === "" || b === "" || c === "") {
             continue;
         }
         if (a === b && b === c) {
@@ -89,11 +88,17 @@ function resultValidation() {
         }
     }
 
-    if (roundWon) {
+    if (roundWon && currentPlayer === "X") {
         gameStatus.innerHTML = `The ${currentPlayer}'s Are Victorious!`;
+        gameStatus.style.color = "rgb(255, 0, 0)";
         gameActive = false;
         return;
+    } else if(roundWon && currentPlayer === "O") {
+        gameStatus.innerHTML = `The ${currentPlayer}'s Are Victorious!`;
+        gameStatus.style.color = "rgb(163, 69, 252)";
+        gameActive = false;
     }
+
 
     let roundDraw = !gameState.includes("");
     if (roundDraw) {
@@ -103,6 +108,7 @@ function resultValidation() {
     }
 
     playerChange();
+
 }
 
 
@@ -119,6 +125,8 @@ function cellClick(clickedCellEvent) {
 }
 
 
+
+
 // Restart function to clear board, player names, game status info
 const restartBoard = () => {
     gameActive = true;
@@ -128,6 +136,7 @@ const restartBoard = () => {
     document.getElementById("player1").value = null;
     document.getElementById("player2").value = null;
     document.getElementById("playerTurn").innerHTML = "";
+    document.getElementById("game-msg").innerHTML = "";
     gameState = ["", "", "", "", "", "", "", "", ""];
     document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
 
