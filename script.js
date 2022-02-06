@@ -26,7 +26,7 @@ const gameStatus = document.querySelector(".game-outcome");
         let player2Input = document.getElementById("player2").value;
         document.getElementById("player2-display").innerHTML = player2Input + " is Os!";
         document.getElementById("player2").value = "";
-        document.getElementById("playerTurn").innerHTML = "Xs must start the game!"
+        document.getElementById("playerTurn").innerHTML = `${currentPlayer} Must Start The Game!`;
     });
  
 
