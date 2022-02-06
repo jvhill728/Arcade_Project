@@ -89,13 +89,15 @@ function resultValidation() {
     }
 
     if (roundWon && currentPlayer === "X") {
-        gameStatus.innerHTML = `The ${currentPlayer}'s Are Victorious!`;
+        gameStatus.innerHTML = `The ${currentPlayer}s Are Victorious!`;
         gameStatus.style.color = "rgb(255, 0, 0)";
+        playerTurnDisplay.innerHTML = "Game Over!";
         gameActive = false;
         return;
     } else if(roundWon && currentPlayer === "O") {
-        gameStatus.innerHTML = `The ${currentPlayer}'s Are Victorious!`;
+        gameStatus.innerHTML = `The ${currentPlayer}s Are Victorious!`;
         gameStatus.style.color = "rgb(163, 69, 252)";
+        playerTurnDisplay.innerHTML = "Game Over!";
         gameActive = false;
     }
 
@@ -103,6 +105,8 @@ function resultValidation() {
     let roundDraw = !gameState.includes("");
     if (roundDraw) {
         gameStatus.innerHTML = "Cat's Game!";
+        playerTurnDisplay.innerHTML = "Game Over!";
+        gameStatus.style.color = "yellow";
         gameActive = false;
         return;
     }
